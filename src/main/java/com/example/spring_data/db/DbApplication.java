@@ -5,11 +5,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.EnableCaching;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 @Slf4j
 @SpringBootApplication
+@EnableCaching
 public class DbApplication implements CommandLineRunner
 {
 	@Autowired
@@ -22,7 +25,8 @@ public class DbApplication implements CommandLineRunner
 	@Override
 	public void run(String... args)
 	{
-		studentService.addStudent(new Student(10001L,"Bob", "123"));
+        studentService.initStudent(Arrays.asList(new Student(1001L, "A", "123"),
+                new Student(1002L, "B", "456")));
 
 		Optional<Student> student = studentService.findById(10001L);
 		if (!student.isPresent())
@@ -30,9 +34,7 @@ public class DbApplication implements CommandLineRunner
 			LOG.debug("empty student");
 			return;
 		}
-
 		LOG.debug("student id: {}, student name: {}, student passport: {}", student.get().getId(), student.get().getName(), student.get().getPassportNumber());
-
 		LOG.debug("Get by name: {}", studentService.getByName("Bob"));
 
 	}
