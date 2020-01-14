@@ -34,7 +34,7 @@ public class Student
     @Override
     public String toString()
     {
-        return String.format("Student [id= %s, name=%s, passportNumber= %s]", id, name, passportNumber);
+        return String.format("Students [id= %s, name=%s, passportNumber= %s]", id, name, passportNumber);
     }
 
 }
