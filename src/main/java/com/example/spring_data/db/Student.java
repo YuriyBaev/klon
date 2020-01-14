@@ -5,7 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Getter
 @Setter
@@ -26,13 +29,12 @@ public class Student
 
     public Student()
     {
-
     }
 
     @Override
     public String toString()
     {
-        return String.format("Student [id=%s, name=%s, passportNumber=%s]", id, name, passportNumber);
+        return String.format("Student [id= %s, name=%s, passportNumber= %s]", id, name, passportNumber);
     }
 
 }
