@@ -12,8 +12,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.Arrays;
 import java.util.Optional;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
@@ -52,14 +50,6 @@ public class StudentServiceTest
         Student student = studentService.addStudent(new Student(id, name, passportNumber));
         Assert.assertNotNull(student);
     }
-
-    /*@Test
-    public void findByName()
-    {
-        studentService.addStudent(new Student(id, name, passportNumber));
-        Student student = studentService.getByName(name);
-        Assert.assertEquals("Ted", student.getName());
-    }*/
 
     @Test
     public void findById()
