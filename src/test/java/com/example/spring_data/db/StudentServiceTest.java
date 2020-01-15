@@ -15,6 +15,7 @@ import java.util.Optional;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
+/*test*/
 public class StudentServiceTest
 {
     private static final Long id = 2L;
